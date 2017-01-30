@@ -1,0 +1,29 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "server",
+      "image": "lzac/helloworld-server",
+      "essential": true,
+      "memory": 200,
+      "cpu": 1
+    },
+    {
+      "name": "proxy",
+      "image": "lzac/helloworld-proxy",
+      "essential": true,
+      "memory": 200,
+      "cpu": 1,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "links": [
+        "server:server"
+      ]
+    }
+  ]
+}
