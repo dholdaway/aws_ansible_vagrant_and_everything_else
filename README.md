@@ -3,7 +3,7 @@ AWS Notes
 
 Use tags
 
-service = name of service this could be accounts, ETL, frontend api etc
+service = name of service this could be accounts, ETL, frontend api etc  
 environment = production, test, development
 version = version number
 
