@@ -39,16 +39,26 @@ New EBS volumes have no filesystem, so you can't start storing data immediately 
 
 Initializing a volume with a specific filesystem type is easy using Linux and can be done by issuing the following commands.
 
-Issue the following command to create an ext3 filesystem on the new volume:
+Issue the following command to create an ext3 filesystem on the new volume:  
+
     sudo mkfs -t ext4 /dev/sdf
-Make the directory for mounting the new storage:
+    
+Make the directory for mounting the new storage:  
+    
     sudo mkdir /mnt/ebs-store
+
 Mount the new volume:
+    
     sudo mount /dev/sdf /mnt/ebs-store
+
 To configure the Linux instance to mount this volume on boot, open /etc/fstab in an editor by typing the following:
+    
     sudo nano /etc/fstab
+
 Append the following line to /etc/fstab:
+    
     /dev/sdf /mnt/ebs-store ext4 defaults,noatime 1 2
+
 In the text editor, hit Ctrl+O, then Ctrl+X to save the file and exit the editor.
 
 This directories contains local copies of ec2.py and ec2.ini, but you may want to grab
